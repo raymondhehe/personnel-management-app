@@ -10,6 +10,7 @@ const emberAppLocation     = `file://${dirname}/dist/index.html`;
 const url= require('url')
 
 let mainWindow = null;
+let loginWindow = null;
 
 // Uncomment the lines below to enable Electron's crash reporter
 // For more information, see http://electron.atom.io/docs/api/crash-reporter/
@@ -28,12 +29,16 @@ app.on('window-all-closed', function onWindowAllClosed() {
 });
 
 app.on('ready', function onReady() {
-    mainWindow = new BrowserWindow({
-        width: 1036,
+
+    
+
+    loginWindow = new BrowserWindow({
+        wideth: 1036,
         height: 620
     });
 
-    delete mainWindow.module;
+
+    delete loginWindow.module;
 
     // If you want to open up dev tools programmatically, call
     // mainWindow.openDevTools();
@@ -45,11 +50,19 @@ app.on('ready', function onReady() {
     // config/environment.js file to 'hash'. For more information,
     // please consult the ember-electron readme.
     //mainWindow.loadURL(emberAppLocation);
-    mainWindow.loadURL(url.format({
-    pathname: path.join(__dirname, './signin/index.html'),
-    protocol: 'file:',
-    slashes: true
-    }))
+    loginWindow.loadURL(url.format({
+        pathname: path.join(__dirname, './signin/index.html'),
+        protocol: 'file:',
+        slashes: true
+    }));
+
+    loginWindow.on('closed', () => {
+        mainWindow = new BrowserWindow({
+        width: 1036,
+        height: 620
+        });
+        mainWindow.loadURL(emberAppLocation)
+    });
 
     // If a loading operation goes wrong, we'll send Electron back to
     // Ember App entry point

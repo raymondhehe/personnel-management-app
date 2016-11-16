@@ -37,17 +37,17 @@
 
       <form class="form-signin">
         <h2 class="form-signin-heading">Please sign in</h2>
-        <label for="inputEmail" class="sr-only">ID</label>
-        <input type="email" id="inputID" class="form-control" placeholder="Email address" required autofocus>
+        <label for="inputUsername" class="sr-only">ID</label>
+        <input type="text" id="username" class="form-control" placeholder="Username" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <input type="password" id="password" class="form-control" placeholder="Password" required>
         <div class="checkbox">
           <label>
             <input type="checkbox" value="remember-me"> Remember me
           </label>
         </div>
         <!--onclick="location.href='http://google.com';"-->
-        <button onclick="checkLogin();" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button onclick="checkLogin()" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
       </form>
 
     </div> <!-- /container -->
@@ -57,9 +57,19 @@
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
     <script language="javascript">
     function checkLogin() {
-      alert("error")
-      alert(document.getElementByid('inputID').value)
-      location.href='./hello.html'
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+      if ( username == "test" && password == "test"){
+        alert ("Login successfully");
+        window.close();
+        //location.href='http://google.com';
+        //window.location = "./hello.html"; // Redirecting to other page.
+        return false;
+      }
+      else{
+        alert ("Login failure");
+        return true;
+      }
     }
     </script>
   </body>
