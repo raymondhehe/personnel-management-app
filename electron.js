@@ -7,6 +7,7 @@ const app                  = electron.app;
 const BrowserWindow        = electron.BrowserWindow;
 const dirname              = __dirname || path.resolve(path.dirname());
 const emberAppLocation     = `file://${dirname}/dist/index.html`;
+const url= require('url')
 
 let mainWindow = null;
 
@@ -43,7 +44,12 @@ app.on('ready', function onReady() {
     // Please ensure that you have set the locationType option in the
     // config/environment.js file to 'hash'. For more information,
     // please consult the ember-electron readme.
-    mainWindow.loadURL(emberAppLocation);
+    //mainWindow.loadURL(emberAppLocation);
+    mainWindow.loadURL(url.format({
+    pathname: path.join(__dirname, './signin/index.html'),
+    protocol: 'file:',
+    slashes: true
+    }))
 
     // If a loading operation goes wrong, we'll send Electron back to
     // Ember App entry point
