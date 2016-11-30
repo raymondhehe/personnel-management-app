@@ -90,7 +90,7 @@ let personnel = [{
   yrs: '7',
   rank: 'Enlisted',
   unit: 'Boat'
-}]
+}];
 
 export default Ember.Route.extend({
   model() {

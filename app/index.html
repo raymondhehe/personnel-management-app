@@ -91,6 +91,20 @@
     <script src="{{rootURL}}assets/personnel-management-app.js"></script>
 
     <script src="assets/bootstrap3/js/bootstrap.js"></script>
+    <script language="javascript">
+    function checkLogin() {
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+      if (username == "test" && password == "test"){
+        alert ("Login successfully");
+        return false;
+      }
+      else{
+        alert ("Login failure");
+        return true;
+      }
+    }
+    </script>
 
     {{content-for "body-footer"}}
   </body>
