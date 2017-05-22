@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('personnel');
   this.route('insights');
   this.route('signin');
+  this.route('demo');
   this.route('main',{ path: '/' });
   this.route('add');
   this.route('decision');

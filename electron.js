@@ -37,6 +37,11 @@ app.on('ready', function onReady() {
         height: 620
     });
 
+    loginWindow = new BrowserWindow({
+        wideth: 1036,
+        height: 620
+    });
+
 
     //delete loginWindow.module;
 
@@ -50,12 +55,12 @@ app.on('ready', function onReady() {
     // config/environment.js file to 'hash'. For more information,
     // please consult the ember-electron readme.
     //mainWindow.loadURL(emberAppLocation);
-    /*
+    
     loginWindow.loadURL(url.format({
         pathname: path.join(__dirname, './signin/index.html'),
         protocol: 'file:',
         slashes: true
-    }));*/
+    }));
 
     mainWindow.loadURL(emberAppLocation);
 
